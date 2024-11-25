@@ -11,10 +11,10 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Connect to MongoDB
-mongoose.connect("mongodb+srv://blogdb:ecom123@cluster0.b3xhh25.mongodb.net/");
+mongoose.connect(process.env.MONGODB_URL);
 mongoose.connection.once("open", () => console.log("Connected to MongoDB"));
 
-// Routes
+// Routes 
 app.use("/api", authRoutes);
 
 // Start the server
